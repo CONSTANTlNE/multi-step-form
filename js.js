@@ -191,7 +191,12 @@ next_btn.addEventListener("click", () => {
     }
   }
   addon_selected.value = JSON.stringify(array);
+
+  for (let i = 0; i < form2.length; i++) {
+    form1.appendChild(form2.elements[i]);
+  }
 });
+
 back_btn.addEventListener("click", () => {
   sum = 0;
 });
@@ -209,26 +214,23 @@ let slide4 = document.querySelector(".slide4");
 let form1 = document.querySelector(".registration__form");
 let form2 = document.querySelector(".plans_form");
 
-confirm_btn.addEventListener("click", () => {
-  for (let i = 0; i < form2.length; i++) {
-    form1.appendChild(form2[i]);
-  }
-});
+confirm_btn.addEventListener("click", () => {});
 
 confirm_btn.addEventListener("click", () => {
-  form1.submit();
   confirm_btn.style.display = "none";
   back_btn.style.display = "none";
   next_btn.style.display = "none";
   slide4.style.display = "none";
   slide5.style.display = "flex";
+
+  form1.submit();
 });
 
 // ==============VALIDATION=========
 let user_inputs = document.querySelectorAll(".slide1 input");
 let alerts = document.querySelectorAll(".required");
 
-next_btn.addEventListener("mouseover", () => {
+next_btn.addEventListener("click", () => {
   let allhasvalue = true;
   for (let i = 0; i < user_inputs.length; i++) {
     if (user_inputs[i].value === "") {
