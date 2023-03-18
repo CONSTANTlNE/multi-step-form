@@ -1,0 +1,469 @@
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Ubuntu";
+}
+:root {
+  /* COLORS */
+
+  --BG: #eff5ff;
+  --Border-Color: #d6d9e6;
+  --Denim: #022959;
+  --Grey: #9699aa;
+  --Light-Blue: #abbcff;
+  --Light-Grey: #d6d9e6;
+  --Orange: #ffaf7e;
+  --Pink: #f9818e;
+  --Purple: #483eff;
+  --Red-Errors: #ee374a;
+  --Sky-Blue: #bee2fd;
+  --Very-Light-Grey: #f8f9ff;
+  --White: #ffffff;
+
+  /* FONT  */
+
+  --FS-Heading: 2rem;
+  --FS-Body-L: 1rem;
+  --FS-Body-M: 0.875rem;
+  --FS-Body-S: 0.75rem;
+}
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-color: lightgray;
+}
+
+.main__wrapper {
+  width: 58.75rem;
+  height: 37.5rem;
+  border-radius: 0.5rem;
+  background-color: var(--White);
+  position: relative;
+}
+
+.plans_form {
+  display: none;
+}
+
+/* ============ SIDE PANEL ============ */
+
+.steps__panel {
+  background-image: url("images/bg-sidebar-desktop.svg");
+  display: flex;
+  flex-direction: column;
+  width: 17.125rem;
+  height: 35.5rem;
+  margin: 1rem 1rem 0 1rem;
+  position: absolute;
+}
+
+.steps__container {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding-top: 2.5rem;
+  padding-left: 2rem;
+}
+.steps__numeration {
+  display: inline;
+  height: 2rem;
+  width: 2rem;
+  border-radius: 50%;
+  border: 0.0625rem solid;
+  border-color: var(--Border-Color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+/* '''''''''''''''''''' */
+.steps__numeration {
+  font-weight: 700;
+  color: var(--White);
+  font-size: var(--FS-Body-M);
+}
+
+.steps-active {
+  color: var(--Denim);
+  font-weight: bold;
+  background: var(--Sky-Blue);
+  border: none;
+}
+
+.steps__info {
+  display: flex;
+  flex-direction: column;
+}
+
+.step_num {
+  color: var(--Light-Blue);
+  font-size: var(--FS-Body-S);
+  font-weight: 400;
+  margin-bottom: 0.2rem;
+}
+
+.steps__details {
+  color: var(--White);
+  font-size: var(--FS-Body-M);
+  font-weight: 700;
+}
+
+/* ==============SLIDES=============== */
+
+.steps__slides {
+  width: 28.125rem;
+  position: absolute;
+  left: 24.375rem;
+  top: 3.5rem;
+}
+
+.slide1 {
+  display: block;
+}
+
+.slide2 {
+  display: none;
+}
+
+.slide3 {
+  display: none;
+}
+
+.slide4 {
+  display: none;
+}
+
+.slide5 {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 9.32rem;
+  text-align: center;
+  width: 28.125rem;
+}
+.slide5 p {
+  font-size: var(--FS-Body-L);
+}
+.slide5 h2 {
+  margin-top: 2rem;
+  margin-bottom: 0.875rem;
+}
+
+.steps__slides form {
+  margin-top: 2.5rem;
+}
+
+h2 {
+  color: var(--Denim);
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 0.6875rem;
+}
+
+.slides_description,
+.plans__option p {
+  color: var(--Grey);
+  font-size: var(--FS-Body-L);
+}
+
+.steps__slides input {
+  width: 28.125rem;
+  height: 2.5rem;
+  border: 0.0625rem solid var(--Border-Color);
+  border-radius: 0.5rem;
+  margin-top: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.steps__slides label {
+  color: var(--Denim);
+  font-size: var(--FS-Body-M);
+}
+
+/*===================NAVIGATION======== */
+
+.slides__navigation {
+  position: absolute;
+  width: 28.125rem;
+  display: flex;
+  justify-content: end;
+  right: 6.25rem;
+  bottom: 2rem;
+}
+
+.next__btn {
+  width: 7.52375rem;
+  height: 3rem;
+  font-size: var(--FS-Body-L);
+  background-color: var(--Denim);
+  color: var(--White);
+  border-radius: 0.5rem;
+  font-weight: 500;
+  cursor: pointer;
+  margin-left: 16.6875rem;
+  border: none;
+  display: block;
+}
+.confirm__btn {
+  width: 7.52375rem;
+  height: 3rem;
+  font-size: var(--FS-Body-L);
+  background-color: var(--Purple);
+  color: var(--White);
+  border-radius: 0.5rem;
+  font-weight: 500;
+  cursor: pointer;
+  border: none;
+  display: none;
+}
+
+.back__btn {
+  justify-self: flex-start;
+  width: 4rem;
+  display: none;
+  color: var(--Grey);
+  font-size: var(--FS-Body-L);
+  font-weight: 500;
+  background-color: white;
+  border: none;
+  cursor: pointer;
+  margin-right: auto;
+}
+
+/* ============Choose plan Slide 2=============== */
+
+.plans__info {
+  display: flex;
+  justify-content: space-between;
+}
+.plans__option {
+  width: 8.625rem;
+  cursor: pointer;
+  border: 0.0625rem solid var(--Border-Color);
+  border-radius: 0.5rem;
+  height: 10rem;
+  margin-top: 2.5rem;
+}
+
+.optionselected {
+  border-color: var(--Purple);
+  background: var(--Very-Light-Grey);
+}
+
+.plans__info img {
+  margin-left: 1rem;
+  margin-top: 1.25rem;
+  margin-bottom: 2.4375rem;
+}
+
+.plans__info h3 {
+  margin-left: 1rem;
+}
+.plans__option p {
+  margin-top: 0.4375rem;
+  margin-left: 1rem;
+}
+
+.subscription__type {
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  display: flex;
+  width: 28.125rem;
+  height: 3rem;
+  background: var(--Very-Light-Grey);
+  margin-top: 2rem;
+}
+
+.toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.monthly {
+  margin: 0;
+  font-size: var(--FS-Body-M);
+  font-weight: 700;
+  color: var(--Denim);
+}
+.yearly {
+  font-size: var(--FS-Body-M);
+  font-weight: 700;
+  color: var(--Grey);
+}
+#toggle:checked ~ .monthly {
+  color: var(--Grey);
+}
+#toggle:checked ~ .yearly {
+  color: var(--Denim);
+}
+
+.toggle__fill {
+  width: 2.375rem;
+  height: 1.25rem;
+  background: var(--Denim);
+  border-radius: 1.125rem;
+  margin: 0 1.5rem;
+  position: relative;
+}
+
+.toggle__fill::after {
+  content: "";
+  position: absolute;
+  top: 0.25rem;
+  left: 0.25rem;
+  height: 0.75rem;
+  width: 0.75rem;
+  border-radius: 50%;
+  background: var(--White);
+}
+#toggle:checked ~ .toggle__fill::after {
+  left: 1.375rem;
+}
+
+/* ============ADD ONS=========== */
+
+.addons {
+  display: flex;
+  justify-content: space-between;
+  height: 5rem;
+  align-items: center;
+  margin-bottom: 1rem;
+  border: 1px solid var(--Border-Color);
+  border-radius: 0.5rem;
+  cursor: pointer;
+}
+.addonselected {
+  background: var(--Very-Light-Grey);
+  border: 1px solid var(--Purple);
+}
+
+.addons:nth-child(1) {
+  margin-top: 2.5rem;
+}
+
+.chkbx {
+  width: 1.25rem;
+  height: 1.25rem;
+  border: 1px solid var(--Border-Color);
+  border-radius: 0.25rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  margin: 0 1.5rem;
+}
+.chkbx::after {
+  content: "\2714";
+  color: var(--White);
+}
+
+.addons__info input:checked + .chkbx {
+  background-color: var(--Purple);
+  border: none;
+}
+
+.steps__slides h3 {
+  color: var(--Denim);
+}
+.wraper p {
+  color: var(--Grey);
+  font-size: var(--FS-Body-M);
+}
+
+.wrapper2 {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.price {
+  margin-right: 1.5rem;
+  font-size: var(--FS-Body-M);
+  color: var(--Purple);
+  line-height: 1.25rem;
+}
+
+/* ============== SLIDE 4 FINISHING UP ============= */
+
+.sum__info {
+}
+
+.finish__text {
+  color: var(--Grey);
+  font-size: var(--FS-Body-L);
+}
+
+.totals_backgr {
+  background: var(--Very-Light-Grey);
+  border-radius: 0.5rem;
+  width: 28.125rem;
+
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  padding-left: 1.5rem;
+  margin-top: 2.5rem;
+}
+
+.product__choice {
+  align-content: start;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 25.125rem;
+  height: 4.3125rem;
+  border-bottom: 1px solid var(--Border-Color);
+}
+
+.addon_choice {
+  width: 25.125rem;
+  margin-top: 1rem;
+  display: none;
+  justify-content: space-between;
+  align-items: center;
+}
+.addon_price {
+  color: var(--Denim);
+  font-size: var(--FS-Body-M);
+  font-weight: 400;
+}
+
+.final__wrapper p:nth-child(1) {
+  color: var(--Denim);
+  font-size: var(--FS-Body-L);
+  font-weight: 500;
+}
+
+.final__wrapper p:nth-child(2) {
+  border-bottom: 1px solid var(--Border-Color);
+  width: 3rem;
+  margin-top: 0.4375rem;
+}
+.mainpr_pricetag {
+  color: var(--Denim);
+  font-size: var(--FS-Body-L);
+  font-weight: 700;
+}
+.gray_text {
+  color: var(--Grey);
+  font-size: var(--FS-Body-M);
+}
+
+.totals {
+  margin-top: 2.5rem;
+  width: 25.125rem;
+  margin-left: 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.totals p:nth-child(2) {
+  color: var(--Purple);
+  font-weight: 700;
+}

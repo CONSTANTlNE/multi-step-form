@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Multy Step Form</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <script src="js.js" defer></script>
+  </head>
+  <body>
+    <main class="main__wrapper">
+      <div class="steps__panel">
+        <div class="steps__container">
+          <div class="steps__numeration steps-active">
+            <span>1</span>
+          </div>
+          <div class="steps__info">
+            <p class="step_num">STEP 1</p>
+            <p class="steps__details">YOUR INFO</p>
+          </div>
+        </div>
+        <div class="steps__container">
+          <div class="steps__numeration"><span>2</span></div>
+          <div class="steps__info">
+            <p class="step_num">STEP 2</p>
+            <p class="steps__details">SELECT PLAN</p>
+          </div>
+        </div>
+        <div class="steps__container">
+          <div class="steps__numeration"><span>3</span></div>
+          <div class="steps__info">
+            <p class="step_num">STEP 3</p>
+            <p class="steps__details">ADD-ONS</p>
+          </div>
+        </div>
+        <div class="steps__container">
+          <div class="steps__numeration"><span>4</span></div>
+          <div class="steps__info">
+            <p class="step_num">STEP 4</p>
+            <p class="steps__details">SUMMARY</p>
+          </div>
+        </div>
+      </div>
+      <div class="steps__slides slide1">
+        <div>
+          <h2>Personal info</h2>
+          <p class="slides_description">
+            Please provide your name, email address, and phone number.
+          </p>
+          <form
+            action="https://httpbin.org/get"
+            method="get"
+            class="registration__form"
+            target="_blank"
+          >
+            <label for="name">Name</label><br />
+            <input
+              type="text"
+              name="user_name"
+              id="name"
+              placeholder="e.g. Stephen King"
+            /><br />
+            <label for="email">Email Address</label><br />
+            <input
+              type="email"
+              name="user_email"
+              id="email"
+              placeholder="e.g. stephenking@lorem.com"
+            /><br />
+            <label for="phone">Phone Number</label><br />
+            <input
+              type="tel"
+              name="user_phone"
+              id="phone"
+              placeholder="e.g. +1 234 567 890"
+            />
+          </form>
+        </div>
+      </div>
+      <div class="steps__slides slide2">
+        <div class="plans">
+          <h2>Select your plan</h2>
+          <p class="slides_description">
+            You have the option of monthly or yearly billing.
+          </p>
+          <div class="plans__info">
+            <input type="radio" id="arcade" hidden name="plans" />
+            <label class="plans__option" for="arcade">
+              <img src="images/icon-arcade.svg" alt="" />
+              <h3 class="plan_name">Arcade</h3>
+              <p>
+                $ <span class="plans_price">9</span
+                ><span class="m-or-y">/mo</span>
+              </p>
+            </label>
+            <input type="radio" id="advanced" hidden name="plans" />
+            <label class="plans__option" for="advanced">
+              <img src="images/icon-advanced.svg" alt="" />
+              <h3 class="plan_name">Advanced</h3>
+              <p>
+                $ <span class="plans_price">12</span
+                ><span class="m-or-y">/mo</span>
+              </p>
+            </label>
+            <input type="radio" id="pro" hidden name="plans" />
+            <label class="plans__option" for="pro">
+              <img src="images/icon-pro.svg" alt="" />
+              <h3 class="plan_name">Pro</h3>
+              <p>
+                $ <span class="plans_price">15</span
+                ><span class="m-or-y">/mo</span>
+              </p>
+            </label>
+          </div>
+        </div>
+        <div class="subscription__type">
+          <label for="toggle" class="toggle">
+            <input type="checkbox" id="toggle" hidden />
+            <p class="monthly">Monthly</p>
+            <div class="toggle__fill"></div>
+            <p class="yearly">Yearly</p>
+          </label>
+        </div>
+      </div>
+      <div class="steps__slides slide3">
+        <h2>Pick add-ons</h2>
+        <p class="slides_description">
+          Add-ons help enhance your gaming experience.
+        </p>
+        <div class="addons__info">
+          <label class="addons" for="onlindeservice">
+            <div class="wrapper2">
+              <div>
+                <input
+                  type="checkbox"
+                  id="onlindeservice"
+                  name="addons"
+                  hidden
+                />
+                <div class="chkbx"></div>
+              </div>
+
+              <div class="wraper">
+                <h3 class="addon_name">Online service</h3>
+                <p>Access to multiplayer games</p>
+              </div>
+            </div>
+            <p class="price">
+              +$<span class="adonprice">1</span
+              ><span class="adon-m-y">/mo</span>
+            </p>
+          </label>
+
+          <label class="addons" for="lrgstr">
+            <div class="wrapper2">
+              <label for="lrgstr">
+                <input type="checkbox" id="lrgstr" hidden name="addons" />
+                <div class="chkbx"></div>
+              </label>
+              <div class="wraper">
+                <h3 class="addon_name">Larger storage</h3>
+                <p>Extra 1TB of cloud save</p>
+              </div>
+            </div>
+            <p class="price">
+              +$<span class="adonprice">2</span
+              ><span class="adon-m-y">/mo</span>
+            </p>
+          </label>
+
+          <label class="addons" for="customprof">
+            <div class="wrapper2">
+              <label>
+                <input type="checkbox" id="customprof" hidden name="addons" />
+                <div class="chkbx"></div>
+              </label>
+              <div class="wraper">
+                <h3 class="addon_name">Customizable profile</h3>
+                <p>Custom theme on your profile</p>
+              </div>
+            </div>
+            <p class="price">
+              +$<span class="adonprice">2</span
+              ><span class="adon-m-y">/mo</span>
+            </p>
+          </label>
+        </div>
+      </div>
+      <div class="steps__slides slide4">
+        <h2>Finishing up</h2>
+        <p class="finish__text">
+          Double-check everything looks OK before confirming.
+        </p>
+        <div class="sum__info">
+          <div class="totals_backgr">
+            <div class="product__choice">
+              <div class="final__wrapper">
+                <p>
+                  <span class="final__plan__name"></span
+                  ><span class="subscr__type_main">(Monthly)</span>
+                </p>
+                <p class="gray_text">Change</p>
+              </div>
+              <p class="mainpr_pricetag">
+                $<span class="main_prod_price"></span
+                ><span class="subscr_type"></span>
+              </p>
+            </div>
+            <div class="addon_choice">
+              <p class="addon gray_text">Online service</p>
+              <p class="addon_price">
+                +$<span class="chosen_addon_price"></span
+                ><span class="subscr_type">/mo</span>
+              </p>
+            </div>
+            <div class="addon_choice">
+              <p class="addon gray_text">Larger storage</p>
+              <p class="addon_price">
+                +$<span class="chosen_addon_price"></span
+                ><span class="subscr_type">/mo</span>
+              </p>
+            </div>
+            <div class="addon_choice">
+              <p class="addon gray_text">Customizable profile</p>
+              <p class="addon_price">
+                +$<span class="chosen_addon_price"></span
+                ><span class="subscr_type">/mo</span>
+              </p>
+            </div>
+          </div>
+          <div class="totals">
+            <p class="totals_text gray_text">
+              Total <span class="totals_descr">per month</span>
+            </p>
+            <p>
+              +$<span class="total_payable"></span
+              ><span class="subscr_type">mo</span>
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="steps__slides slide5">
+        <img src="images/icon-thank-you.svg" alt="" />
+        <h2>Thank You!</h2>
+        <p class="gray_text">
+          Thanks for confirming your subscription! We hope you have fun using
+          our platform. If you ever need support, please feel free to email us
+          at support@loremgaming.com.
+        </p>
+      </div>
+
+      <form
+        action="https://httpbin.org/get"
+        method="get"
+        class="plans_form"
+        target="_blank"
+      >
+        <input type="text" class="finalplan" name="selected_plan" />
+        <input type="text" class="finalsubscription" name="subscription_type" />
+        <input type="text" class="addon_selected" name="addon_selected" />
+        <input type="number" class="total_payabe" name="total_amount" />
+      </form>
+
+      <div class="slides__navigation">
+        <button class="back__btn">Go Back</button>
+        <button class="next__btn">Next Step</button>
+        <button class="confirm__btn">Confirm</button>
+      </div>
+    </main>
+  </body>
+</html>
