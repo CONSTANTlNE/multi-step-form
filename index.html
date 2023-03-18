@@ -60,21 +60,31 @@
             class="registration__form"
             target="_blank"
           >
-            <label for="name">Name</label><br />
+            <div class="wrp">
+              <label for="name">Name</label
+              ><span class="required">This field is required</span>
+            </div>
+
             <input
               type="text"
               name="user_name"
               id="name"
               placeholder="e.g. Stephen King"
             /><br />
-            <label for="email">Email Address</label><br />
+            <div class="wrp">
+              <label for="email">Email Address</label
+              ><span class="required">This field is required</span>
+            </div>
             <input
               type="email"
               name="user_email"
               id="email"
               placeholder="e.g. stephenking@lorem.com"
             /><br />
-            <label for="phone">Phone Number</label><br />
+            <div class="wrp">
+              <label for="phone">Phone Number</label
+              ><span class="required">This field is required</span>
+            </div>
             <input
               type="tel"
               name="user_phone"
@@ -91,32 +101,38 @@
             You have the option of monthly or yearly billing.
           </p>
           <div class="plans__info">
-            <input type="radio" id="arcade" hidden name="plans" />
-            <label class="plans__option" for="arcade">
+            <input type="radio" id="arcade" hidden name="plans" checked />
+            <label class="plans__option optionselected" for="arcade">
               <img src="images/icon-arcade.svg" alt="" />
-              <h3 class="plan_name">Arcade</h3>
-              <p>
-                $ <span class="plans_price">9</span
-                ><span class="m-or-y">/mo</span>
-              </p>
+              <div class="plans_mobile">
+                <h3 class="plan_name">Arcade</h3>
+                <p>
+                  $ <span class="plans_price">9</span
+                  ><span class="m-or-y">/mo</span>
+                </p>
+              </div>
             </label>
             <input type="radio" id="advanced" hidden name="plans" />
             <label class="plans__option" for="advanced">
               <img src="images/icon-advanced.svg" alt="" />
-              <h3 class="plan_name">Advanced</h3>
-              <p>
-                $ <span class="plans_price">12</span
-                ><span class="m-or-y">/mo</span>
-              </p>
+              <div class="plans_mobile">
+                <h3 class="plan_name">Advanced</h3>
+                <p>
+                  $ <span class="plans_price">12</span
+                  ><span class="m-or-y">/mo</span>
+                </p>
+              </div>
             </label>
             <input type="radio" id="pro" hidden name="plans" />
             <label class="plans__option" for="pro">
               <img src="images/icon-pro.svg" alt="" />
-              <h3 class="plan_name">Pro</h3>
-              <p>
-                $ <span class="plans_price">15</span
-                ><span class="m-or-y">/mo</span>
-              </p>
+              <div class="plans_mobile">
+                <h3 class="plan_name">Pro</h3>
+                <p>
+                  $ <span class="plans_price">15</span
+                  ><span class="m-or-y">/mo</span>
+                </p>
+              </div>
             </label>
           </div>
         </div>
@@ -137,7 +153,7 @@
         <div class="addons__info">
           <label class="addons" for="onlindeservice">
             <div class="wrapper2">
-              <div>
+              <div class="chk_wrp">
                 <input
                   type="checkbox"
                   id="onlindeservice"
@@ -160,10 +176,10 @@
 
           <label class="addons" for="lrgstr">
             <div class="wrapper2">
-              <label for="lrgstr">
+              <div class="chk_wrp">
                 <input type="checkbox" id="lrgstr" hidden name="addons" />
                 <div class="chkbx"></div>
-              </label>
+              </div>
               <div class="wraper">
                 <h3 class="addon_name">Larger storage</h3>
                 <p>Extra 1TB of cloud save</p>
@@ -177,10 +193,10 @@
 
           <label class="addons" for="customprof">
             <div class="wrapper2">
-              <label>
+              <div class="chk_wrp">
                 <input type="checkbox" id="customprof" hidden name="addons" />
                 <div class="chkbx"></div>
-              </label>
+              </div>
               <div class="wraper">
                 <h3 class="addon_name">Customizable profile</h3>
                 <p>Custom theme on your profile</p>

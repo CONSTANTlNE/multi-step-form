@@ -20,7 +20,6 @@ function next() {
     steps_slides[index].style.display = "block";
     steps[index].classList.add("steps-active");
     back_btn.style.display = "block";
-    console.log(index);
 
     if (index === steps_slides.length - 1) {
       steps_slides[index].style.display = "block";
@@ -41,7 +40,7 @@ function back() {
     index--;
     steps_slides[index].style.display = "block";
     steps[index].classList.add("steps-active");
-    console.log(index);
+
     if (index === 0) {
       back_btn.style.display = "none";
     }
@@ -142,12 +141,15 @@ period.addEventListener("change", () => {
     subscr_type.forEach((item) => {
       item.textContent = "/yr";
     });
-  } else if (!period.checked) {
-    subscr_type_main.textContent = "(Monthly)";
-    subscr_type.forEach((item) => {
-      item.textContent = "/mo";
-    });
   }
+  // else if (!period.checked) {
+
+  // }
+});
+
+subscr_type_main.textContent = "(Monthly)";
+subscr_type.forEach((item) => {
+  item.textContent = "/mo";
 });
 
 // =======addon pricing=====
@@ -176,8 +178,8 @@ next_btn.addEventListener("click", () => {
     for (let i = 0; i < final_addon_prices.length; i++) {
       sum += Number(final_addon_prices[i].textContent);
     }
-    sum += Number(selected_plans_price.textContent);
-    total.textContent = sum;
+
+    total.textContent = sum + Number(selected_plans_price.textContent);
   }
   finalplan.value = final_plan.textContent;
   finalsubscription.value = subscr_type_main.textContent;
@@ -194,7 +196,7 @@ back_btn.addEventListener("click", () => {
   sum = 0;
 });
 
-// =========== UPDATIN FORM ==========
+// =========== UPDATING FORM ==========
 
 let finalplan = document.querySelector(".finalplan");
 let finalsubscription = document.querySelector(".finalsubscription");
@@ -208,11 +210,41 @@ let form1 = document.querySelector(".registration__form");
 let form2 = document.querySelector(".plans_form");
 
 confirm_btn.addEventListener("click", () => {
+  for (let i = 0; i < form2.length; i++) {
+    form1.appendChild(form2[i]);
+  }
+});
+
+confirm_btn.addEventListener("click", () => {
   form1.submit();
-  form2.submit();
   confirm_btn.style.display = "none";
   back_btn.style.display = "none";
   next_btn.style.display = "none";
   slide4.style.display = "none";
   slide5.style.display = "flex";
+});
+
+// ==============VALIDATION=========
+let user_inputs = document.querySelectorAll(".slide1 input");
+let alerts = document.querySelectorAll(".required");
+
+next_btn.addEventListener("mouseover", () => {
+  let allhasvalue = true;
+  for (let i = 0; i < user_inputs.length; i++) {
+    if (user_inputs[i].value === "") {
+      allhasvalue = false;
+      next_btn.removeEventListener("click", next);
+    }
+    if (allhasvalue) {
+      next_btn.addEventListener("click", next);
+    }
+  }
+});
+next_btn.addEventListener("click", () => {
+  for (let i = 0; i < user_inputs.length; i++) {
+    if (user_inputs[i].value === "") {
+      user_inputs[i].style.outline = "1px solid red";
+      alerts[i].style.display = "block";
+    }
+  }
 });

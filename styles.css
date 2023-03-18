@@ -119,6 +119,7 @@ body {
   position: absolute;
   left: 24.375rem;
   top: 3.5rem;
+  background-color: var(--White);
 }
 
 .slide1 {
@@ -178,6 +179,21 @@ h2 {
   border-radius: 0.5rem;
   margin-top: 0.5rem;
   margin-bottom: 1.5rem;
+  cursor: pointer;
+}
+.wrp {
+  display: flex;
+  justify-content: space-between;
+}
+.required {
+  color: var(--Red-Errors);
+  font-size: var(--FS-Body-M);
+  font-weight: 700;
+  display: none;
+}
+
+.slide1 input:focus {
+  outline: 1px solid var(--Purple);
 }
 
 .steps__slides label {
@@ -205,7 +221,7 @@ h2 {
   border-radius: 0.5rem;
   font-weight: 500;
   cursor: pointer;
-  margin-left: 16.6875rem;
+
   border: none;
   display: block;
 }
@@ -223,7 +239,6 @@ h2 {
 }
 
 .back__btn {
-  justify-self: flex-start;
   width: 4rem;
   display: none;
   color: var(--Grey);
@@ -233,6 +248,10 @@ h2 {
   border: none;
   cursor: pointer;
   margin-right: auto;
+}
+
+.back__btn:hover {
+  color: var(--Denim);
 }
 
 /* ============Choose plan Slide 2=============== */
@@ -466,4 +485,145 @@ h2 {
 .totals p:nth-child(2) {
   color: var(--Purple);
   font-weight: 700;
+}
+
+@media (max-width: 390px) {
+  .steps__panel {
+    background-image: url("images/bg-sidebar-mobile.svg");
+    background-size: cover;
+    flex-direction: row;
+    align-items: start;
+    justify-content: center;
+    width: 100vw;
+    height: 10.75rem;
+    margin: 0;
+    position: absolute;
+  }
+  .steps__info {
+    display: none;
+  }
+
+  .main__wrapper {
+    width: 100vw;
+    height: 100vh;
+    background: var(--BG);
+  }
+
+  .steps__slides input {
+    width: 18.475rem;
+    height: 2.5rem;
+    border: 0.0625rem solid var(--Border-Color);
+    border-radius: 0.5rem;
+    margin-top: 0.5rem;
+    margin-bottom: 1.5rem;
+    cursor: pointer;
+  }
+  .slides__navigation {
+    align-items: center;
+    width: 100vw;
+    height: 4.5rem;
+    right: 0rem;
+    bottom: 0rem;
+    background-color: var(--White);
+  }
+
+  .next__btn {
+    height: 2.5rem;
+    width: 6.0625rem;
+    margin-right: 1rem;
+  }
+
+  .back__btn {
+    margin-left: 1rem;
+  }
+
+  .steps__slides {
+    width: 21.4375rem;
+    /* height: calc((100vh - 12.1875rem)); */
+    position: absolute;
+    padding: 2rem 1.5rem;
+    left: calc((100vw - 21.4375rem) / 2);
+
+    top: 6.1875rem;
+    border-radius: 0.625rem;
+    box-shadow: 0px 25px 40px -20px rgba(0, 0, 0, 0.0951141);
+  }
+  .plans__info {
+    flex-direction: column;
+  }
+
+  .plans__info img {
+    width: 2.5rem;
+    height: 2.5rem;
+  }
+  .plans_mobile {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .plans__option {
+    display: flex;
+    height: 4.8125rem;
+    width: 18.4375rem;
+    margin-top: 0.75rem;
+  }
+  .subscription__type {
+    width: 18.4375rem;
+  }
+
+  .addons:nth-child(1) {
+    margin-top: 1.375rem;
+  }
+  .addons {
+    width: 18.4375rem;
+    margin-bottom: 0.75rem;
+  }
+  .wraper {
+    width: 10.5rem;
+    display: inline;
+  }
+  .addon_name {
+    font-size: var(--FS-Body-M);
+  }
+  .wraper p {
+    font-size: var(--FS-Body-S);
+    margin-top: 0.1875rem;
+  }
+  .wrapper2 {
+    display: flex;
+  }
+  .chkbx {
+    margin: 0 1rem;
+  }
+
+  .price {
+    margin-right: 1rem;
+  }
+
+  .product__choice {
+    width: 16.4375rem;
+  }
+
+  .addon_choice {
+    width: 16.4375rem;
+  }
+
+  .totals {
+    width: 16.4375rem;
+  }
+
+  .totals_backgr {
+    width: 18.4375rem;
+    padding: 1rem;
+  }
+
+  .confirm__btn {
+    width: 6.0625rem;
+    margin-right: 1rem;
+  }
+
+  body {
+    align-items: start;
+    justify-content: start;
+  }
 }
