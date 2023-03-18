@@ -10,8 +10,6 @@ let realsubmit = document.querySelector(".realsubmit");
 
 let index = 0;
 
-next_btn.addEventListener("click", next);
-
 function next() {
   if (index < 3) {
     steps_slides[index].style.display = "none";
@@ -30,8 +28,6 @@ function next() {
     }
   }
 }
-
-back_btn.addEventListener("click", back);
 
 function back() {
   if (index > 0) {
@@ -157,6 +153,8 @@ let addon_inputs = document.getElementsByName("addons");
 let addon_prices = document.querySelectorAll(".adonprice");
 let final_addon_prices = document.querySelectorAll(".chosen_addon_price");
 let final_addons = document.querySelectorAll(".addon_choice");
+let total = document.querySelector(".total_payable");
+let sum = 0;
 
 next_btn.addEventListener("click", () => {
   for (let i = 0; i < addon_inputs.length; i++) {
@@ -168,29 +166,13 @@ next_btn.addEventListener("click", () => {
       final_addon_prices[i].textContent = 0;
     }
   }
-});
 
-let total = document.querySelector(".total_payable");
-let sum = 0;
-
-next_btn.addEventListener("click", () => {
-  if (steps_slides[3].style.display === "block") {
+  if (steps_slides[2].style.display === "block") {
     for (let i = 0; i < final_addon_prices.length; i++) {
       sum += Number(final_addon_prices[i].textContent);
     }
-
-    total.textContent = sum + Number(selected_plans_price.textContent);
   }
-  finalplan.value = final_plan.textContent;
-  finalsubscription.value = subscr_type_main.textContent;
-  total_payabe.value = total.textContent;
-  let array = [];
-  for (let i = 0; i < addon_name.length; i++) {
-    if (chkbx[i].checked) {
-      array.push(addon_name[i].textContent);
-    }
-  }
-  addon_selected.value = JSON.stringify(array);
+  total.textContent = sum + Number(selected_plans_price.textContent);
 
   for (let i = 0; i < form2.length; i++) {
     form1.appendChild(form2.elements[i]);
@@ -199,6 +181,8 @@ next_btn.addEventListener("click", () => {
 
 back_btn.addEventListener("click", () => {
   sum = 0;
+  total.textContent = 0;
+  back();
 });
 
 // =========== UPDATING FORM ==========
@@ -214,7 +198,18 @@ let slide4 = document.querySelector(".slide4");
 let form1 = document.querySelector(".registration__form");
 let form2 = document.querySelector(".plans_form");
 
-confirm_btn.addEventListener("click", () => {});
+confirm_btn.addEventListener("click", () => {
+  finalplan.value = final_plan.textContent;
+  finalsubscription.value = subscr_type_main.textContent;
+  total_payabe.value = total.textContent;
+  let array = [];
+  for (let i = 0; i < addon_name.length; i++) {
+    if (chkbx[i].checked) {
+      array.push(addon_name[i].textContent);
+    }
+  }
+  addon_selected.value = JSON.stringify(array);
+});
 
 confirm_btn.addEventListener("click", () => {
   confirm_btn.style.display = "none";
@@ -230,18 +225,31 @@ confirm_btn.addEventListener("click", () => {
 let user_inputs = document.querySelectorAll(".slide1 input");
 let alerts = document.querySelectorAll(".required");
 
-next_btn.addEventListener("click", () => {
-  let allhasvalue = true;
-  for (let i = 0; i < user_inputs.length; i++) {
-    if (user_inputs[i].value === "") {
-      allhasvalue = false;
-      next_btn.removeEventListener("click", next);
+// window.addEventListener("load", () => {
+//   for (let i = 0; i < user_inputs.length; i++) {
+//     if (user_inputs[i].value === "") {
+//       allhasvalue = false;
+//       next_btn.removeEventListener("click", next);
+//     }
+//   }
+// });
+let inputs = document.querySelectorAll(".slide1 input");
+
+for (let i = 0; i < inputs.length; i++) {
+  inputs[i].addEventListener("blur", () => {
+    let allhasvalue = true;
+    for (let i = 0; i < user_inputs.length; i++) {
+      if (user_inputs[i].value === "") {
+        allhasvalue = false;
+        next_btn.removeEventListener("click", next);
+      }
     }
     if (allhasvalue) {
       next_btn.addEventListener("click", next);
     }
-  }
-});
+  });
+}
+
 next_btn.addEventListener("click", () => {
   for (let i = 0; i < user_inputs.length; i++) {
     if (user_inputs[i].value === "") {
@@ -249,4 +257,15 @@ next_btn.addEventListener("click", () => {
       alerts[i].style.display = "block";
     }
   }
+  let allhasvalue = true;
+  for (let i = 0; i < user_inputs.length; i++) {
+    if (user_inputs[i].value === "") {
+      allhasvalue = false;
+      next_btn.removeEventListener("click", next);
+    }
+  }
+  if (allhasvalue) {
+    next_btn.addEventListener("click", next);
+  }
+  // ======================
 });
