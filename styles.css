@@ -6,6 +6,9 @@
   box-sizing: border-box;
   font-family: "Ubuntu";
 }
+html {
+  height: -webkit-fill-available;
+}
 :root {
   /* COLORS */
 
@@ -34,7 +37,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 100vh;
+  height: -webkit-fill-available;
   background-color: lightgray;
 }
 
